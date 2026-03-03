@@ -10,6 +10,7 @@ import java.time.Instant;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -83,5 +84,12 @@ public class UserService {
     private boolean isEmployed(User newUser) {
         return users.values().stream()
                 .anyMatch(user -> newUser.getEmail().equals(user.getEmail()));
+    }
+
+    Optional<User> findUserById (long id) {
+        return users.values()
+                .stream()
+                .filter(user -> id == user.getId())
+                .findFirst();
     }
 }
