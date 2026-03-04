@@ -21,6 +21,15 @@ public class UserService {
         return users.values();
     }
 
+    public Optional<User> findUserById(long userId) {
+        Optional<User> user= Optional.ofNullable(users.get(userId));
+        if (user.isPresent()) {
+            return user;
+        } else {
+            throw new NotFoundException("Пользователь с id = " + userId + " не найден");
+        }
+    }
+
     public User create(User newUser) {
         if (newUser.getEmail() == null || newUser.getEmail().isBlank()) {
             throw new ConditionsNotMetException("Имейл должен быть указан");
@@ -59,7 +68,7 @@ public class UserService {
             }
             return oldUser;
         }
-        throw new NotFoundException("Пост с id = " + newUser.getId() + " не найден");
+        throw new NotFoundException("Пользователь с id = " + newUser.getId() + " не найден");
     }
 
     // вспомогательный метод для генерации идентификатора нового поста
@@ -73,23 +82,7 @@ public class UserService {
     }
 
     private boolean isEmailEmployed(User newUser) {
-        for (User oldUser : users.values()) {
-            if (oldUser.getEmail().equals(newUser.getEmail())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isEmployed(User newUser) {
         return users.values().stream()
                 .anyMatch(user -> newUser.getEmail().equals(user.getEmail()));
-    }
-
-    Optional<User> findUserById (long id) {
-        return users.values()
-                .stream()
-                .filter(user -> id == user.getId())
-                .findFirst();
     }
 }
