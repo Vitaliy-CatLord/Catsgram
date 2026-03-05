@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.Instant;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -17,7 +17,7 @@ public class User {
     String username;
     String email;
     String password;
-    Instant registrationDate;
+    LocalDate registrationDate;
 
 
 }

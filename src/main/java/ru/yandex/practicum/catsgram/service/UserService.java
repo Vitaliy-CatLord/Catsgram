@@ -6,7 +6,7 @@ import ru.yandex.practicum.catsgram.exception.DuplicatedDataException;
 import ru.yandex.practicum.catsgram.exception.NotFoundException;
 import ru.yandex.practicum.catsgram.model.User;
 
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +39,7 @@ public class UserService {
         }
 
         newUser.setId(getNextId());
-        newUser.setRegistrationDate(Instant.now());
+        newUser.setRegistrationDate(LocalDate.now());
         users.put(newUser.getId(), newUser);
         return newUser;
     }
