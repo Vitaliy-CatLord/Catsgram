@@ -26,10 +26,10 @@ public class PostController {
                                     @RequestParam (defaultValue = "10") int size
     ) {
         SortOrder sortOrder = SortOrder.from(sort);
-        if(sortOrder == null) {
+        if (sortOrder == null) {
             throw new ParameterNotValidException("sortOrder", "Получено: " + sort + " должно быть: asc или desc");
         }
-        if(!(size > 0)) {
+        if (!(size > 0)) {
             throw new ParameterNotValidException("size", "Некорректный размер выборки. Размер должен быть больше нуля");
         }
         if (from < 0) {
@@ -40,7 +40,7 @@ public class PostController {
     }
 
     @GetMapping("/{postId}")
-    public Optional<Post> findPostById ( @PathVariable long postId) {
+    public Optional<Post> findPostById(@PathVariable long postId) {
         return postService.findPostById(postId);
     }
 

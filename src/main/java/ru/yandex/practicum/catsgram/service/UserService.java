@@ -22,7 +22,7 @@ public class UserService {
     }
 
     public Optional<User> findUserById(long userId) {
-        Optional<User> user= Optional.ofNullable(users.get(userId));
+        Optional<User> user = Optional.ofNullable(users.get(Optional.of(userId)));
         if (user.isPresent()) {
             return user;
         } else {
@@ -72,8 +72,8 @@ public class UserService {
     }
 
     // вспомогательный метод для генерации идентификатора нового поста
-    private long getNextId() {
-        long currentMaxId = users.keySet()
+    private Long getNextId() {
+        Long currentMaxId = (Long) users.keySet()
                 .stream()
                 .mapToLong(id -> id)
                 .max()

@@ -35,7 +35,7 @@ public class PostService {
                 .toList();
     }
 
-    public Optional<Post> findPostById(long postId){
+    public Optional<Post> findPostById(long postId) {
         Optional<Post> post = Optional.ofNullable(posts.get(postId));
         if (post.isPresent()) {
             return post;

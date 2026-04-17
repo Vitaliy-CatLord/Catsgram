@@ -8,7 +8,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode(of = {"id"} )
+@EqualsAndHashCode(of = {"id"})
 public class Image {
 
     Long id;
