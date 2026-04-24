@@ -39,6 +39,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+<!--            <version>4.1.0-RC1</version> &lt;!&ndash; there isnt in Practicum&ndash;&gt;-->
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.10</version> <!-- there isnt in Practicum-->
+        </dependency>
     </dependencies>
 
     <build>

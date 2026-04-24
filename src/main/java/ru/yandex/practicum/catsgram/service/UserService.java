@@ -1,6 +1,7 @@
 package ru.yandex.practicum.catsgram.service;
 
 import org.springframework.stereotype.Service;
+import ru.yandex.practicum.catsgram.dal.UserRepository;
 import ru.yandex.practicum.catsgram.exception.ConditionsNotMetException;
 import ru.yandex.practicum.catsgram.exception.DuplicatedDataException;
 import ru.yandex.practicum.catsgram.exception.NotFoundException;
