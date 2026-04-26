@@ -1,45 +1,44 @@
 package ru.yandex.practicum.catsgram.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.yandex.practicum.catsgram.model.User;
+import ru.yandex.practicum.catsgram.dto.NewUserRequest;
+import ru.yandex.practicum.catsgram.dto.UpdateUserRequest;
+import ru.yandex.practicum.catsgram.dto.UserDTO;
 import ru.yandex.practicum.catsgram.service.UserService;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/users")
 public class UserController {
-
     private final UserService userService;
-
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
-
-    private final Map<Long, User> users = new HashMap<>();
-
-    @GetMapping
-    public Collection<User> findAll() {
-        return userService.findAll();
-    }
-
-    @GetMapping("/{userId}")
-    public Optional<User> findUserById(@PathVariable long userId) {
-        return userService.findUserById(userId);
-    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public User create(@RequestBody User newUser) {
-        return userService.create(newUser);
+    public UserDTO createUser(@RequestBody NewUserRequest createRequest){
+        return userService.createUser(createRequest);
     }
 
-    @PutMapping
-    public User update(@RequestBody User newUser) {
-        return userService.update(newUser);
+    @PutMapping("/{userId}")
+    @ResponseStatus(HttpStatus.OK)
+    public UserDTO updateUser (@PathVariable("userId") long userId, @RequestBody UpdateUserRequest updateRequest) {
+        return userService.updateUser(userId, updateRequest);
     }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<UserDTO> getUsers(){
+        return userService.getUsers();
+    }
+
+    @GetMapping("/{userId}")
+    @ResponseStatus(HttpStatus.OK)
+    public UserDTO getUserById (@PathVariable("userId") long userId) {
+        return userService.getUserById(userId);
+    }
+
+
 }

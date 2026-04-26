@@ -49,7 +49,7 @@ public class PostService {
             throw new ConditionsNotMetException("Описание не может быть пустым");
         }
 
-        userService.findUserById(post.getAuthorId());
+        //userService.findUserById(post.getAuthorId());
 
         post.setId(getNextId());
         post.setPostDate(Instant.now());
