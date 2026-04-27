@@ -1,4 +1,4 @@
-package ru.yandex.practicum.catsgram.mappers;
+package ru.yandex.practicum.catsgram.dal.mappers;
 
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;

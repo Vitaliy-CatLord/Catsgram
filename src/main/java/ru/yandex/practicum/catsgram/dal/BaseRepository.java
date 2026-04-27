@@ -47,9 +47,11 @@ public class BaseRepository<T> {
         jdbc.update(connection -> {
             PreparedStatement ps = connection
                     .prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+
             for (int idx = 0; idx < param.length; idx++) {
                 ps.setObject(idx+1, param[idx]);
             }
+
         return ps;}, keyHolder);
 
         Long id = keyHolder.getKeyAs(Long.class);

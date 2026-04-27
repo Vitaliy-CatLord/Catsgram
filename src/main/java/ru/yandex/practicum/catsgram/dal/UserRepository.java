@@ -1,10 +1,8 @@
 package ru.yandex.practicum.catsgram.dal;
 
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-import ru.yandex.practicum.catsgram.mappers.UserRowMapper;
 import ru.yandex.practicum.catsgram.model.User;
 
 import java.sql.Timestamp;

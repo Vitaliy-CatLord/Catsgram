@@ -11,9 +11,9 @@ import lombok.ToString;
 @EqualsAndHashCode(of = {"id"})
 public class Image {
 
-    Long id;
-    long postId;
-    String originalFileName;
-    String filePath;
+    private Long id;
+    private long postId;
+    private String originalFileName;
+    private String filePath;
 
 }
