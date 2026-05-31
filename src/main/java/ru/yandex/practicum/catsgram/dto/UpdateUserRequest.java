@@ -8,15 +8,15 @@ public class UpdateUserRequest {
     private String email;
     private String password;
 
-    public boolean hasUsername(){
-        return ! (username == null || username.isBlank());
+    public boolean hasUsername() {
+        return !(username == null || username.isBlank());
     }
 
     public boolean hasEmail() {
-        return ! (email == null || email.isBlank());
+        return !(email == null || email.isBlank());
     }
 
     public boolean hasPassword() {
-        return ! (password == null || password.isBlank());
+        return !(password == null || password.isBlank());
     }
 }

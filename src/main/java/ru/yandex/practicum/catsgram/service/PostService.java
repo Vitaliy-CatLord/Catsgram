@@ -71,7 +71,7 @@ public class PostService {
         return PostMapper.mapToPostDTO(post);
     }
 
-    public PostDTO updatePost (long postId, UpdatePostRequest updateRequest) {
+    public PostDTO updatePost(long postId, UpdatePostRequest updateRequest) {
         if (updateRequest.getDescription() == null || updateRequest.getDescription().isBlank()) {
             throw new ConditionsNotMetException("Текст поста не моет быть пуст");
         }

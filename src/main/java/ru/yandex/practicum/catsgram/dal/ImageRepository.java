@@ -12,11 +12,11 @@ import java.util.Optional;
 public class ImageRepository extends BaseRepository<Image> {
     private static final String INSERT_QUERY = "INSERT INTO image_storage(original_name, file_path, post_id)"
             + "VALUES (?, ?, ?) returning id";
-    private static final String FIND_BY_ID_QUERY = "SEECT * FROM image_storage WHERE id = ?";
+    private static final String FIND_BY_ID_QUERY = "SELECT * FROM image_storage WHERE id = ?";
     private static final String FIND_BY_POST_ID_QUERY = "SELECT * FROM image_storage WHERE post_id = ?";
     private static final String DELETE_QUERY = "DELETE FROM image_storage WHERE id = ?";
 
-    public  ImageRepository (JdbcTemplate jdbc, ImageRowMapper mapper) {
+    public ImageRepository(JdbcTemplate jdbc, ImageRowMapper mapper) {
         super(jdbc, mapper);
     }
 

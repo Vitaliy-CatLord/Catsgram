@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class UserRepository  extends BaseRepository{
+public class UserRepository  extends BaseRepository<User> {
     private static final String FIND_ALL_QUERY = "SELECT * FROM users";
     private static final String FIND_BY_EMAIL_QUERY = "SELECT * FROM users WHERE email = ?";
     private static final String FIND_BY_ID_QUERY = "SELECT * FROM users WHERE id = ?";
@@ -51,7 +51,6 @@ public class UserRepository  extends BaseRepository{
                 UPDATE_QUERY,
                 user.getUsername(),
                 user.getEmail(),
-                user.getPassword(),
                 user.getPassword()
                 );
         return user;

@@ -29,7 +29,7 @@ public final class UserMapper {
         return dto;
     }
 
-    public static User updateUserFields (User user, UpdateUserRequest request) {
+    public static User updateUserFields(User user, UpdateUserRequest request) {
         if (request.hasUsername()) {
             user.setUsername(request.getUsername());
         }

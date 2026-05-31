@@ -17,7 +17,7 @@ public class BaseRepository<T> {
     protected final JdbcTemplate jdbc;
     protected final RowMapper<T> mapper;
 
-    protected Optional<T> findOne (String query, Object... params) {
+    protected Optional<T> findOne(String query, Object... params) {
         try {
             T result = jdbc.queryForObject(query, mapper, params);
             return Optional.ofNullable(result);
@@ -26,7 +26,7 @@ public class BaseRepository<T> {
         }
     }
 
-    protected List<T> findMany (String query, Object... params) {
+    protected List<T> findMany(String query, Object... params) {
         return jdbc.query(query, mapper, params);
     }
 
@@ -37,7 +37,7 @@ public class BaseRepository<T> {
 
     protected void update(String query, Object... params) {
         int rowsDeleted = jdbc.update(query, params);
-        if(rowsDeleted == 0) {
+        if (rowsDeleted == 0) {
             throw new InternalServerExeption("Не удалось обновить данные");
         }
     }
@@ -49,13 +49,14 @@ public class BaseRepository<T> {
                     .prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 
             for (int idx = 0; idx < param.length; idx++) {
-                ps.setObject(idx+1, param[idx]);
+                ps.setObject(idx + 1, param[idx]);
             }
 
-        return ps;}, keyHolder);
+            return ps;
+        }, keyHolder);
 
         Long id = keyHolder.getKeyAs(Long.class);
-        if(id != null) {
+        if (id != null) {
             return id;
         } else {
             throw new InternalServerExeption("Не удалось сохранить данные");

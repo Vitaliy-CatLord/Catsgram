@@ -18,25 +18,25 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public UserDTO createUser(@RequestBody NewUserRequest createRequest){
+    public UserDTO createUser(@RequestBody NewUserRequest createRequest) {
         return userService.createUser(createRequest);
     }
 
     @PutMapping("/{userId}")
     @ResponseStatus(HttpStatus.OK)
-    public UserDTO updateUser (@PathVariable("userId") long userId, @RequestBody UpdateUserRequest updateRequest) {
+    public UserDTO updateUser(@PathVariable("userId") long userId, @RequestBody UpdateUserRequest updateRequest) {
         return userService.updateUser(userId, updateRequest);
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<UserDTO> getUsers(){
+    public List<UserDTO> getUsers() {
         return userService.getUsers();
     }
 
     @GetMapping("/{userId}")
     @ResponseStatus(HttpStatus.OK)
-    public UserDTO getUserById (@PathVariable("userId") long userId) {
+    public UserDTO getUserById(@PathVariable("userId") long userId) {
         return userService.getUserById(userId);
     }
 

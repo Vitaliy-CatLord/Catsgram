@@ -43,7 +43,7 @@ public class UserService {
                 .orElseThrow(() -> new NotFoundException("Пользователь с ID " + userId + " не найден"));
     }
 
-    public List<UserDTO> getUsers(){
+    public List<UserDTO> getUsers() {
         return userRepository.findAll()
                 .stream()
                 .map(UserMapper::mapToUserDto)
@@ -57,7 +57,6 @@ public class UserService {
         updatedUser = userRepository.update(updatedUser);
         return UserMapper.mapToUserDto(updatedUser);
     }
-
 
 
 }
